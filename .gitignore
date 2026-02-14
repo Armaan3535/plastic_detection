@@ -13,7 +13,10 @@ node_modules/
 *.keras
 backend/model/
 backend/venv/
-backend/blockchain.json
+backend/blockchain_8000.json
+backend/blockchain_8001.json
+backend/blockchain_8000_nodes.json
+backend/blockchain_8001_nodes.json
 
 
 
