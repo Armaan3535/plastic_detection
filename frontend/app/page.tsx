@@ -1,6 +1,7 @@
 "use client"
 
 import { useRef, useState, useEffect } from "react"
+import Link from "next/link";
 
 export default function Home() {
   const videoRef = useRef<HTMLVideoElement>(null)
@@ -167,6 +168,17 @@ export default function Home() {
         </div>
 
       </div>
+
+      <div className="flex justify-end">
+      <Link href="/history">
+      <button
+      className="mt-10 w-l bg-emerald-600 hover:bg-emerald-700 transition-all duration-300 p-3 rounded-xl font-semibold"
+      >
+          History
+      </button>
+      </Link>
+      </div>
+
     </div>
   )
 }

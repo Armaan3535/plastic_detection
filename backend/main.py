@@ -35,13 +35,13 @@ PORT = os.getenv("PORT", "8000")
 blockchain_file = f"blockchain_{PORT}.json"
 blockchain = Blockchain(blockchain_file=blockchain_file)
 
-class_names = ["OTHERS", "PC", "PE", "PET", "PP", "PS"]
+class_names = ["HDPE", "LDPE", "PET", "PP", "PS", "PVC"]
 
 class NodeRequest(BaseModel):
     address: str
 
 def preprocess_image(image):
-    image = image.resize((260, 260)) 
+    image = image.resize((224, 224)) 
     image = np.array(image)
     image = np.expand_dims(image, axis=0)
     return image
@@ -69,6 +69,7 @@ async def predict(file: UploadFile = File(...)):
     prediction = model.predict(img)
     class_index = np.argmax(prediction)
     confidence = float(np.max(prediction))
+    #print(prediction)
 
     record = {
         "request_id": request_id,
